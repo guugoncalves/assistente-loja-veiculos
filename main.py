@@ -1,8 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Teste Streamlit", layout="centered")
+st.title("🚨 TESTE ABSOLUTO")
+st.write("Se você está vendo isso, o Streamlit está executando ESTE arquivo.")
 
-st.title("✅ Streamlit está funcionando")
-st.write("Se você está vendo esta mensagem, o deploy deu certo.")
-
-st.button("Botão de teste")
+raise Exception("TESTE DE ERRO FORÇADO")
