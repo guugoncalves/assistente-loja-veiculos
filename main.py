@@ -1,16 +1,33 @@
-# This is a sample Python script.
+import streamlit as st
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+st.set_page_config(page_title="Assistente Virtual", layout="centered")
 
+st.title("🤖 Assistente Virtual da Loja")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+st.write(
+    "Olá! 👋\n\n"
+    "Sou o assistente virtual da loja.\n\n"
+    "Vou te ajudar a encontrar o veículo ideal e "
+    "simular as condições de pagamento."
+)
 
+if st.button("📋 Ver catálogo no WhatsApp"):
+    st.markdown(
+        "[Clique aqui para ver o catálogo](https://wa.me/c/5511947352770)",
+        unsafe_allow_html=True
+    )
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+st.divider()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+st.subheader("💰 Simulação de compra")
+
+nome = st.text_input("Nome completo")
+entrada = st.number_input("Valor de entrada (R$)", min_value=0)
+renda = st.number_input("Renda mensal (R$)", min_value=0)
+
+if st.button("Enviar simulação"):
+    if nome and renda > 0:
+        st.success("✅ Simulação enviada com sucesso!")
+        st.write("Um vendedor entrará em contato em breve.")
+    else:
+        st.warning("⚠️ Preencha os campos obrigatórios.")
